@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: [
@@ -7,36 +7,54 @@ module.exports = {
         'script-loader!foundation-sites/dist/js/foundation.min.js',
         './app/app.jsx'
     ],
-    externals: {
-        jquery: 'jQuery'
+
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: 'bundle.js'
     },
+
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                include: [
+                    path.resolve(__dirname, 'app')
+                ],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'bower_components')
+                ],
+                loader: 'babel-loader',
+                options: {
+                    presets: ['react', 'env', 'stage-0']
+                }
+            }
+        ]
+    },
+
+    resolve: {
+        modules: [
+            'node_modules',
+            path.resolve(__dirname, 'app/components')
+        ],
+        extensions: ['.js', '.jsx'],
+        alias: {
+            applicationStyles: path.resolve('app/styles/app.scss')
+        }
+    },
+
+    devtool: 'cheap-module-eval-source-map',
+
+    context: __dirname,
+
     plugins: [
         new webpack.ProvidePlugin({
             '$': 'jquery',
             'jQuery': 'jquery'
         })
     ],
-    output: {
-        path: __dirname,
-        filename: './public/bundle.js'
-    },
-    resolve: {
-        alias: {
-            applicationStyles: path.resolve('app/styles/app.scss')
-        },
-        extensions: ['.js', '.jsx']
-    },
-    module: {
-        loaders: [
-            {
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'env', 'stage-0']
-                },
-                test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/
-            }
-        ]
-    },
-    devtool: 'cheap-module-eval-source-map'
+
+    externals: {
+        jquery: 'jQuery'
+    }
 };

@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
+import $ from 'jquery';
+
+import TodoApp from 'TodoApp';
 
 // Load foundation
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
@@ -11,6 +14,6 @@ require('style-loader!css-loader!sass-loader!applicationStyles');
 
 ReactDOM.render((
     <Router>
-        <p>Boilerplate 3</p>
+        <TodoApp/>
     </Router>
 ), document.getElementById('app'));
