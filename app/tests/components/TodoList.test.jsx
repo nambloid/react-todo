@@ -28,5 +28,4 @@ describe('TodoList', () => {
 
         expect(todoComponents.length).toBe(todos.length);
     });
-
 });
