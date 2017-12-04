@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 
 import TodoSearch from 'TodoSearch';
 import TodoList from 'TodoList';
@@ -8,23 +9,32 @@ export default class TodoApp extends React.Component {
     constructor (props) {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handleAddTodo = this.handleAddTodo.bind(this);
         this.state = {
             showCompleted: false,
             searchText: '',
             todos: [
                 {
-                    id: 1,
+                    id: uuid(),
                     text: 'Walk the dog'
                 },
                 {
-                    id: 2,
+                    id: uuid(),
                     text: 'Dog the walk'
                 }
             ]
         }
     }
     handleAddTodo (text) {
-        alert(`New todo: ${text}`);
+        this.setState({
+            todos: [
+                ...this.state.todos,
+                {
+                    id: uuid(),
+                    text: text
+                }
+            ]
+        });
     }
     handleSearch (showCompleted, searchText) {
         this.setState({
