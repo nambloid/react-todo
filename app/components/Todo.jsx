@@ -5,11 +5,12 @@ export default class Todo extends React.Component {
         super(props);
     }
     render () {
-        const {id, text} = this.props;
+        const {id, text, completed} = this.props;
 
         return (
-            <div>
-                {id}. {text}
+            <div onClick={() => this.props.onToggle(id)}>
+                <input type="checkbox" checked={completed}/>
+                {text}
             </div>
         )
     }

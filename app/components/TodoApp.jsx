@@ -10,17 +10,27 @@ export default class TodoApp extends React.Component {
         super(props);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleAddTodo = this.handleAddTodo.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
         this.state = {
             showCompleted: false,
             searchText: '',
             todos: [
                 {
                     id: uuid(),
-                    text: 'Walk the dog'
-                },
-                {
+                    text: 'Walk the dog',
+                    completed: true
+                }, {
                     id: uuid(),
-                    text: 'Dog the walk'
+                    text: 'Dog the walk',
+                    completed: true
+                }, {
+                    id: uuid(),
+                    text: 'Feed the cat',
+                    completed: false
+                }, {
+                    id: uuid(),
+                    text: 'Cat the feed',
+                    completed: true
                 }
             ]
         }
@@ -31,10 +41,21 @@ export default class TodoApp extends React.Component {
                 ...this.state.todos,
                 {
                     id: uuid(),
-                    text: text
+                    text: text,
+                    completed: false
                 }
             ]
         });
+    }
+    handleToggle (id) {
+        const updatedTodos = this.state.todos.map((todo) => {
+            if (todo.id === id) {
+                todo.completed = !todo.completed;
+            }
+            return todo;
+        });
+
+        this.setState({todos: updatedTodos});
     }
     handleSearch (showCompleted, searchText) {
         this.setState({
@@ -47,7 +68,7 @@ export default class TodoApp extends React.Component {
         return (
             <div>
                 <TodoSearch onSearch={this.handleSearch}/>
-                <TodoList todos={todos} />
+                <TodoList todos={todos} onToggle={this.handleToggle}/>
                 <AddTodo onAddTodo={this.handleAddTodo}/>
             </div>
         )
