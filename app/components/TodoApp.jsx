@@ -59,9 +59,16 @@ export default class TodoApp extends React.Component {
 
         return (
             <div>
-                <TodoSearch onSearch={this.handleSearch}/>
-                <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
-                <AddTodo onAddTodo={this.handleAddTodo}/>
+                <h1 className="page-title">Todo App</h1>
+                <div className="grid-x align-center">
+                    <div className="large-4 medium-6 small-11">
+                        <div className="container">
+                            <TodoSearch onSearch={this.handleSearch}/>
+                            <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+                            <AddTodo onAddTodo={this.handleAddTodo}/>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

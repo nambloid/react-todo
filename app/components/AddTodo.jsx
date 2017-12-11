@@ -20,7 +20,7 @@ export default class AddTodo extends React.Component {
         const {id, text} = this.props;
 
         return (
-            <div>
+            <div className="container__footer">
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" ref="todoText" placeholder="Add todo"/>
                     <button className="button expanded">Add Todo</button>
