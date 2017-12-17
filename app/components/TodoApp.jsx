@@ -31,7 +31,8 @@ export default class TodoApp extends React.Component {
                     id: uuid(),
                     text: text,
                     completed: false,
-                    createdAt: moment().unix()
+                    createdAt: moment().unix(),
+                    completedAt: undefined
                 }
             ]
         });
