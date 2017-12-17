@@ -40,7 +40,8 @@ module.exports = {
         ],
         extensions: ['.js', '.jsx'],
         alias: {
-            applicationStyles: path.resolve('app/styles/app.scss')
+            applicationStyles: path.resolve('app/styles/app.scss'),
+            actions: path.resolve('app/actions/actions.jsx')
         }
     },
 
