@@ -2,7 +2,7 @@ import expect from 'expect';
 
 const actions = require('actions');
 
-describe('Actions', () => {
+describe('[Actions]', () => {
     it('should generate set search text action', () => {
         let action = {
             type: 'SET_SEARCH_TEXT',

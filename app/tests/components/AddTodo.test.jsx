@@ -6,7 +6,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 
 import AddTodo from 'AddTodo';
 
-describe('AddTodo', () => {
+describe('[AddTodo]', () => {
     it('should exist', () => {
         expect(AddTodo).toBeTruthy();
     });

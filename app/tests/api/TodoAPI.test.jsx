@@ -2,7 +2,7 @@ import expect from 'expect';
 
 import TodoAPI from 'TodoAPI';
 
-describe('TodoAPI', () => {
+describe('[TodoAPI]', () => {
 
     beforeEach(() => {
         localStorage.removeItem('todos');

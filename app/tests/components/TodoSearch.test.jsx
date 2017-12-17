@@ -5,7 +5,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 
 import TodoSearch from 'TodoSearch';
 
-describe('TodoSearch', () => {
+describe('[TodoSearch]', () => {
     it('should exist', () => {
         expect(TodoSearch).toBeTruthy();
     });

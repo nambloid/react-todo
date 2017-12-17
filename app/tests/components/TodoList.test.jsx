@@ -7,7 +7,7 @@ import expect from 'expect';
 import TodoList from 'TodoList';
 import Todo from 'Todo';
 
-describe('TodoList', () => {
+describe('[TodoList]', () => {
     it('should exist', () => {
         expect(TodoList).toBeTruthy();
     });

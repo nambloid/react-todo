@@ -41,7 +41,8 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         alias: {
             applicationStyles: path.resolve('app/styles/app.scss'),
-            actions: path.resolve('app/actions/actions.jsx')
+            actions: path.resolve('app/actions/actions.jsx'),
+            reducers: path.resolve('app/reducers/reducers.jsx')
         }
     },
 
