@@ -1,5 +1,5 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
-//import ReduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 
 import {searchTextReducer, showCompletedReducer, todosReducer } from 'reducers';
 
@@ -11,6 +11,7 @@ var configureStore = (initialState = {}) => {
     });
 
     let store = createStore(reducer, initialState, compose(
+        applyMiddleware(thunk),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     ));
 
