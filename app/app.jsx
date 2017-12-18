@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 
+import configureStore from 'configureStore';
 import TodoApp from 'TodoApp';
 
 const actions = require('actions');
-const store = require('configureStore').configure();
+const store = configureStore();
 
 store.subscribe(() => {
     console.log('New state:', store.getState());
@@ -24,6 +26,8 @@ require('style-loader!css-loader!sass-loader!applicationStyles');
 
 ReactDOM.render((
     <Router>
-        <TodoApp/>
+        <Provider store={store}>
+            <TodoApp/>
+        </Provider>
     </Router>
 ), document.getElementById('app'));
