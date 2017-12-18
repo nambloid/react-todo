@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import configureStore from 'configureStore';
 import TodoApp from 'TodoApp';
@@ -12,10 +12,6 @@ const store = configureStore();
 store.subscribe(() => {
     console.log('New state:', store.getState());
 });
-
-store.dispatch(actions.addTodo('Clean the yard'));
-store.dispatch(actions.setSearchText('yard'));
-store.dispatch(actions.toggleShowCompleted());
 
 // Load foundation
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
