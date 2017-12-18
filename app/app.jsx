@@ -5,13 +5,18 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import configureStore from 'configureStore';
 import TodoApp from 'TodoApp';
+import TodoAPI from 'TodoAPI';
 
 const actions = require('actions');
 const store = configureStore();
 
 store.subscribe(() => {
-    console.log('New state:', store.getState());
+    let state = store.getState();
+    console.log('New state:', state);
+    TodoAPI.setTodos(state.todos);
 });
+
+store.dispatch(actions.addTodos(TodoAPI.getTodos()));
 
 // Load foundation
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
